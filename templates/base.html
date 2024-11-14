@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    {% block content %} {% endblock %}
+
+
+    <table>
+       
+            {% for row in board %}
+            <tr>
+            {% for letter in row %}
+            <td>
+                {{letter}}
+            </td>
+            {% endfor %}
+        </tr>
+            {% endfor %}
+    </table>
+
+    <form method="POST" id="guess-form">
+        <label for="guess">Guess:</label>
+        <input type="text" name ="guess">
+        <input id = "submit-button" type="submit">
+
+    </form>
+
+  
+    <p id = "show-result"></p>
+
+
+    <h2 id = "score"></h2>
+    <p id = "timer"></p>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="static/boggle.js"></script>
+</body>
+
+
+</html>
